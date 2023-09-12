@@ -1,0 +1,61 @@
+#! /bin/bash
+
+echo "Starting syncronization..."
+IFS=$'\n'
+
+echo "Checking Files..."
+for file in $(ls "$1/Files/"); do
+	if ! [[ -e /home/mkim/obsidian/'Obsidian Vault'/Files/$file ]]; then
+		echo "Copying $file to Files..."
+		cp "$1/Files/$file" /home/mkim/obsidian/'Obsidian Vault'/Files/
+		echo "Copied!"
+	fi
+done
+
+echo "Checking Lectures..."
+for file in $(ls "$1/Lections/"); do
+        if ! [[ -e /home/mkim/obsidian/'Obsidian Vault'/Lectures/$file ]]; then
+                echo "Copying $file to Lectures..."
+                cp "$1/Lections/$file" /home/mkim/obsidian/'Obsidian Vault'/Lectures/
+		echo "Copied!"
+        fi
+done
+
+echo "Checking Lessons..."
+for file in $(ls "$1/Lessons/"); do
+        if ! [[ -e /home/mkim/obsidian/'Obsidian Vault'/Lessons/$file ]]; then
+                echo "Copying $file to Lessons..."
+                cp "$1/Lessons/$file" /home/mkim/obsidian/'Obsidian Vault'/Lessons/
+		echo "Copied!"
+        fi
+done
+
+echo "Checking Refs..."
+for file in $(ls "$1/Refs/"); do
+        if ! [[ -e /home/mkim/obsidian/'Obsidian Vault'/Refs/$file ]]; then
+                echo "Copying $file to Refs..."
+                cp "$1/Refs/$file" /home/mkim/obsidian/'Obsidian Vault'/Refs/
+		echo "Copied!"
+        fi
+done
+
+echo "Checking Templates..."
+for file in $(ls "$1/Templates/"); do
+        if ! [[ -e /home/mkim/obsidian/'Obsidian Vault'/Templates/$file ]]; then
+                echo "Copying $file to Templates..."
+                cp "$1/Templates/$file" /home/mkim/obsidian/'Obsidian Vault'/Templates/
+		echo "Copied!"
+        fi
+done
+
+echo "Checking Zettelkasten..."
+for file in $(ls "$1/Zettelkasten/"); do
+        if ! [[ -e /home/mkim/obsidian/'Obsidian Vault'/Zettelkasten/$file ]]; then
+                echo "Copying $file to Zettelkasten..."
+                cp "$1/Zettelkasten/$file" /home/mkim/obsidian/'Obsidian Vault'/Zettelkasten/
+		echo "Copied!"
+        fi
+done
+
+echo "Now everything is syncronized"
+
